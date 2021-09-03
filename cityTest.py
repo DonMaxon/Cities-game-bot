@@ -27,7 +27,7 @@ with open("worldcities.csv", newline='', encoding = 'UTF-8') as csvfile:
         exit(0)
 
 
-    def ansOnCity(bot, update, user_data):
+    def ansOnCity(bot, update, user_data): #handler function of entered word
         inp = update.message.text
         inp = inp.upper()
         if (not (len(user_data)==0) and inp[0] != user_data[-2]):
