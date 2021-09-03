@@ -12,9 +12,8 @@ with open("worldcities.csv", newline='', encoding = 'UTF-8') as csvfile:
         user_data.clear()
 
 
-    firstCity = True
 
-    def answer(update, user_data):
+    def answer(update, user_data): #function to answer on user's city, user_data - dictionary with used cities, last character, number of used cities
         csvfile.seek(0)
         for row in data:
             ans = row[1].upper()
@@ -22,7 +21,7 @@ with open("worldcities.csv", newline='', encoding = 'UTF-8') as csvfile:
                 update.message.reply_text(ans)
                 user_data[-1] += 1
                 user_data[user_data[-1]] = ans
-                return ans[-1]
+                return ans[-1]#returns last character of answer
 
         update.message.reply_text("I'm lost")
         exit(0)
@@ -35,8 +34,8 @@ with open("worldcities.csv", newline='', encoding = 'UTF-8') as csvfile:
             update.message.reply_text("Enter city which begins on " + user_data[-2] + '\n')
         else:
             if (len(user_data) == 0):
-                user_data[-1] = 0
-                user_data[-2] = 'A'
+                user_data[-1] = 0#number of used cities
+                user_data[-2] = 'A'#last character of the last city
             hasans = False
             csvfile.seek(0)
             for row in data:
